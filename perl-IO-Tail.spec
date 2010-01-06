@@ -16,7 +16,14 @@ Source0:	http://www.cpan.org/modules/by-module/IO/%{pdir}-%{pnam}-%{version}.tar
 URL:		http://search.cpan.org/dist/IO-Tail/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-%{?with_tests:BuildRequires:	perl-Time-HiRes}
+%if %{with tests}
+BuildRequires:	aspell-en
+BuildRequires:	perl-Pod-Simple
+BuildRequires:	perl-Test-Pod
+BuildRequires:	perl-Test-Pod-Coverage
+BuildRequires:	perl-Test-Spelling
+BuildRequires:	perl-Time-HiRes
+%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
